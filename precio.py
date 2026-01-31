@@ -1,2 +1,0 @@
-class Precio:
-    pass
