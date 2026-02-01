@@ -2,21 +2,21 @@
 import json
 from pathlib import Path
 
-class Precio:
-    """Gestiona los precios de los productos"""
-    __precios: dict
+class Precios:
+    """Gestiona los Precios de los productos"""
+    __Precios: dict
     
     @staticmethod
     def __cargar_data() -> dict:
-        """## Carga los precios desde el archivo JSON
+        """## Carga los Precios desde el archivo JSON
         
         Returns:
-            dict: Diccionario con los precios {nombre_producto: precio}
+            dict: Diccionario con los Precios {nombre_producto: Precios}
         
         Raises:
             FileNotFoundError: Si el archivo no existe
         """
-        ruta = Path("./Data/precios.json")
+        ruta = Path("./Data/Precios.json")
         
         if not ruta.exists():
             raise FileNotFoundError("Archivo no encontrado")
@@ -32,34 +32,34 @@ class Precio:
     
     # Carga los datos al definir la clase
     try:
-        __precios = __cargar_data()
+        __Precios = __cargar_data()
     except FileNotFoundError as e:
         print(f"Error: {e}")
-        __precios = {}
+        __Precios = {}
     except Exception as e:
-        print(f"Error al cargar precios: {e}")
-        __precios = {}
+        print(f"Error al cargar Precios: {e}")
+        __Precios = {}
     
     @staticmethod
     def getPriceFor(nombre_producto: str) -> float:
-        """## Obtiene el precio de un producto dado su nombre
+        """## Obtiene el Precios de un producto dado su nombre
         
         Args:
             nombre_producto (str): Nombre del producto (ej: 'leche')
         
         Returns:
-            float: Precio del producto
+            float: Precios del producto
         
         Raises:
             ValueError: Si el producto no existe
         """
-        if not Precio.__precios:
-            raise ValueError("No hay datos de precios cargados")
+        if not Precios.__Precios:
+            raise ValueError("No hay datos de Precios cargados")
         
-        if nombre_producto not in Precio.__precios:
+        if nombre_producto not in Precios.__Precios:
             raise ValueError(f"Producto '{nombre_producto}' no encontrado")
         
-        return Precio.__precios[nombre_producto]
+        return Precios.__Precios[nombre_producto]
     
     @staticmethod
     def productos() -> tuple:
@@ -68,67 +68,67 @@ class Precio:
         Returns:
             tuple: Todos los nombres de productos
         """
-        return tuple(Precio.__precios.keys())
+        return tuple(Precios.__Precios.keys())
     
     @staticmethod
-    def update(nombre_producto: str, precio: float):
-        """## Actualiza o agrega un precio de producto
+    def update(nombre_producto: str, Precios: float):
+        """## Actualiza o agrega un Precios de producto
         
         Args:
             nombre_producto (str): Nombre del producto
-            precio (float): Nuevo precio del producto
+            Precios (float): Nuevo Precios del producto
         
         Raises:
-            ValueError: Si el precio no es un número positivo
+            ValueError: Si el Precios no es un número positivo
         """
-        if not isinstance(precio, (int, float)) or precio <= 0:
-            raise ValueError(f"El precio debe ser un número positivo. Se recibió: {precio}")
+        if not isinstance(Precios, (int, float)) or Precios <= 0:
+            raise ValueError(f"El Precios debe ser un número positivo. Se recibió: {Precios}")
         
         # Actualizar el diccionario interno
-        Precio.__precios[nombre_producto] = float(precio)
-        print(f"✓ Precio actualizado: {nombre_producto} = {precio}")
+        Precios.__Precios[nombre_producto] = float(Precios)
+        print(f"✓ Precios actualizado: {nombre_producto} = {Precios}")
     
     @staticmethod
     def save():
-        """## Guarda los precios actualizados en el archivo JSON
+        """## Guarda los Precios actualizados en el archivo JSON
         
-        Este método sobrescribe el archivo precios.json con los valores actuales
+        Este método sobrescribe el archivo Precios.json con los valores actuales
         """
         try:
             # Obtener la ruta al archivo JSON
-            ruta = Path("./Data/precios.json")
+            ruta = Path("./Data/Precios.json")
             
             # Asegurarse de que el directorio existe
             ruta.parent.mkdir(parents=True, exist_ok=True)
             
             # Guardar con formato legible 
             ruta.write_text(
-                json.dumps(Precio.__precios, indent=2, ensure_ascii=False), 
+                json.dumps(Precios.__Precios, indent=2, ensure_ascii=False), 
                 encoding="utf-8"
             )
-            print("✓ Archivo precios.json guardado exitosamente")
+            print("✓ Archivo Precios.json guardado exitosamente")
             
         except Exception as e:
             raise IOError(f"No se pudo guardar el archivo: {e}")
     
     @staticmethod
     def mostrarPrecios():
-        """## Muestra todos los precios en formato clave: valor
+        """## Muestra todos los Precios en formato clave: valor
         
-        Imprime el diccionario completo de precios 
+        Imprime el diccionario completo de Precios 
         """
-        if not Precio.__precios:
-            print("No hay precios cargados")
+        if not Precios.__Precios:
+            print("No hay Precios cargados")
             return
         
-        print("\nLISTA DE PRECIOS")
-        for producto, precio in Precio.__precios.items():
-            print(f"{producto}: ${precio:.2f}")
-        print(f"Total: {len(Precio.__precios)} productos")
+        print("\nLISTA DE Precios")
+        for producto, Precios in Precios.__Precios.items():
+            print(f"{producto}: ${Precios:.2f}")
+        print(f"Total: {len(Precios.__Precios)} productos")
     
     @staticmethod
     def delete(nombre_producto: str):
-        """## Elimina un producto de la lista de precios
+        """## Elimina un producto de la lista de Precios
         
         Args:
             nombre_producto (str): Nombre del producto a eliminar
@@ -136,13 +136,13 @@ class Precio:
         Raises:
             ValueError: Si el producto no existe
         """
-        if not Precio.__precios:
-            raise ValueError("No hay datos de precios cargados")
+        if not Precios.__Precios:
+            raise ValueError("No hay datos de Precios cargados")
         
-        if nombre_producto not in Precio.__precios:
+        if nombre_producto not in Precios.__Precios:
             raise ValueError(f"Producto '{nombre_producto}' no encontrado")
         
         # Eliminar el producto del diccionario
-        del Precio.__precios[nombre_producto]
+        del Precios.__Precios[nombre_producto]
         print(f"✓ Producto '{nombre_producto}' eliminado exitosamente")
 
