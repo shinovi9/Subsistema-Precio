@@ -16,7 +16,7 @@ class Precios:
         Raises:
             FileNotFoundError: Si el archivo no existe
         """
-        ruta = Path("./Data/Precios.json")
+        ruta = Path("./Data/precios.json")
         
         if not ruta.exists():
             raise FileNotFoundError("Archivo no encontrado")
@@ -86,7 +86,7 @@ class Precios:
         
         # Actualizar el diccionario interno
         Precios.__precios[nombre_producto] = float(Precios)
-        print(f"✓ Precios actualizado: {nombre_producto} = {Precios}")
+        print(f"✓ Precio actualizado: {nombre_producto} = {Precios}")
     
     @staticmethod
     def save():
@@ -96,7 +96,7 @@ class Precios:
         """
         try:
             # Obtener la ruta al archivo JSON
-            ruta = Path("./Data/Precios.json")
+            ruta = Path("./Data/precios.json")
             
             # Asegurarse de que el directorio existe
             ruta.parent.mkdir(parents=True, exist_ok=True)
@@ -106,7 +106,7 @@ class Precios:
                 json.dumps(Precios.__precios, indent=2, ensure_ascii=False), 
                 encoding="utf-8"
             )
-            print("✓ Archivo Precios.json guardado exitosamente")
+            print("✓ Archivo precios.json guardado exitosamente")
             
         except Exception as e:
             raise IOError(f"No se pudo guardar el archivo: {e}")
