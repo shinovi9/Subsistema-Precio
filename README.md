@@ -9,3 +9,9 @@
 **SubSistema**  Gestor de Precios en una cadena de mercados.
 
 * Donde habrá un Listado de Precios por Producto(**Precio/Producto**).
+
+---
+
+### Diagrama de Clases
+
+![Diagrama_UML_del_Subsistema_de_Precios](https://github.com/shinovi9/Subsistema-Precio/blob/Daniel-Version/Docs/DiagramaSubSistema.svg)
