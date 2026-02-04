@@ -2,5 +2,7 @@
 from abc import ABC, abstractmethod
 
 class IPrecioProvider(ABC):
-    pass
+    @abstractmethod
+    def get_precio():
+        pass
 
