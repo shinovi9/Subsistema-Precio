@@ -1,13 +1,15 @@
 <mxfile host="65bd71144e">
     <diagram id="nzTRskKZavFGR_vE6VzC" name="Página-1">
-        <mxGraphModel dx="1115" dy="681" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#24273A" math="0" shadow="0">
+        <mxGraphModel dx="342" dy="293" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#24273A" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="43" style="edgeStyle=none;html=1;entryX=0.98;entryY=0.053;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=4;strokeColor=#FFFF00;endArrow=diamond;endFill=0;endSize=15;" parent="1" source="2" target="29" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="43" style="edgeStyle=none;html=1;entryX=0.986;entryY=0.172;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;strokeColor=#FFFF00;endArrow=diamond;endFill=0;endSize=15;exitX=0.012;exitY=0.07;exitDx=0;exitDy=0;exitPerimeter=0;rounded=1;" parent="1" source="5" target="29" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1014" y="604" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="44" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=4;strokeColor=#FFFF00;endArrow=block;endFill=0;endSize=15;" parent="1" source="2" edge="1">
+                <mxCell id="44" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3;strokeColor=#FFFF00;endArrow=block;endFill=0;endSize=15;rounded=1;" parent="1" source="2" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="907" y="370" as="targetPoint"/>
                         <Array as="points">
@@ -29,7 +31,7 @@
                 <mxCell id="5" value="&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(0, 0, 0);&quot;&gt;+ __init__(ProductoID&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent;&quot;&gt;)&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent;&quot;&gt;+ id(): ProductoID&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent;&quot;&gt;+ name(): str&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=1;" parent="2" vertex="1">
                     <mxGeometry y="75" width="184" height="54" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=4;strokeColor=#FFFF00;endArrow=block;endFill=0;endSize=15;" parent="1" edge="1">
+                <mxCell id="46" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=3;strokeColor=#FFFF00;endArrow=block;endFill=0;endSize=15;rounded=1;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="747" y="370" as="targetPoint"/>
                         <Array as="points">
@@ -57,7 +59,7 @@
                         <mxRectangle x="658" y="1096" width="95" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="27" value="- productos:&amp;nbsp; dict[int,str]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=1;" parent="26" vertex="1">
+                <mxCell id="27" value="- productos:&amp;nbsp; list[Producto]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=1;" parent="26" vertex="1">
                     <mxGeometry y="26" width="225" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="28" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;rounded=1;" parent="26" vertex="1">
@@ -66,10 +68,10 @@
                 <mxCell id="29" value="&lt;font style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(0, 0, 0);&quot;&gt;+ new_producto(int): Producto&lt;/font&gt;&lt;div style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;&lt;font style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(0, 0, 0);&quot;&gt;+ buscar_por_id(ProductoID): Producto&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;+ incluir_producto(Producto):&lt;/div&gt;&lt;div style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;&lt;font style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(0, 0, 0);&quot;&gt;+ ultimo_incluido(): ProductoID&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;+ cargar_productos()&lt;/div&gt;&lt;div style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;+ guardar_cambios()&lt;/div&gt;&lt;div style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;+ existe(ProductolD): bool&lt;/div&gt;&lt;div style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;+ get_productos(): __productos&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;+ __init__()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=1;" parent="26" vertex="1">
                     <mxGeometry y="60" width="225" height="145" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.01;entryY=0.203;entryDx=0;entryDy=0;startArrow=classic;startFill=1;strokeColor=#FFFF00;strokeWidth=4;entryPerimeter=0;" parent="1" target="29" edge="1">
+                <mxCell id="31" style="edgeStyle=none;html=1;exitX=0.996;exitY=0.338;exitDx=0;exitDy=0;entryX=0.008;entryY=0.286;entryDx=0;entryDy=0;startArrow=none;startFill=0;strokeColor=#FFFF00;strokeWidth=3;entryPerimeter=0;endArrow=none;endFill=0;exitPerimeter=0;rounded=1;" parent="1" source="25" target="29" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="640" y="606" as="sourcePoint"/>
-                        <mxPoint x="732" y="606" as="targetPoint"/>
+                        <mxPoint x="640" y="617" as="sourcePoint"/>
+                        <mxPoint x="720.25" y="621.435" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="39" value="&lt;i style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251);&quot;&gt;IPrecioProvider&lt;/i&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;swimlaneFillColor=default;gradientColor=none;fillStyle=auto;strokeWidth=1;rounded=1;glass=0;swimlaneLine=0;shadow=1;" parent="1" vertex="1">
@@ -83,7 +85,7 @@
                 <mxCell id="42" value="+ get_precio(int): float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=1;" parent="39" vertex="1">
                     <mxGeometry y="34" width="160" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="47" style="edgeStyle=none;html=1;entryX=0.406;entryY=0.03;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeWidth=4;strokeColor=#D5D500;entryPerimeter=0;opacity=90;" parent="1" target="2" edge="1">
+                <mxCell id="47" style="edgeStyle=none;html=1;entryX=0.406;entryY=0.03;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeWidth=3;strokeColor=#D5D500;entryPerimeter=0;opacity=90;endArrow=none;endFill=0;rounded=1;" parent="1" target="2" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="582.5" y="527" as="sourcePoint"/>
                         <mxPoint x="1141.9999999999998" y="527" as="targetPoint"/>
@@ -93,9 +95,18 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="45" style="edgeStyle=none;html=1;entryX=0.497;entryY=0.891;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.479;exitY=-0.005;exitDx=0;exitDy=0;strokeWidth=5;strokeColor=#FFFF00;endArrow=block;endFill=0;endSize=15;exitPerimeter=0;" parent="1" source="26" target="42" edge="1">
+                <mxCell id="45" style="edgeStyle=none;html=1;entryX=0.497;entryY=0.891;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.479;exitY=-0.005;exitDx=0;exitDy=0;strokeWidth=5;strokeColor=#FFFF00;endArrow=block;endFill=0;endSize=15;exitPerimeter=0;rounded=1;" parent="1" source="26" target="42" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="826" y="525" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" style="edgeStyle=none;html=1;entryX=0.42;entryY=1.025;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.532;exitY=0.976;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#FFFF33;strokeWidth=3;endArrow=diamond;endFill=0;endSize=15;rounded=1;" parent="1" source="52" target="57" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="733.0000554865055" y="952.4545454545453" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1357" y="773"/>
+                            <mxPoint x="262" y="779"/>
+                        </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="49" value="ProductoID" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;swimlaneFillColor=default;gradientColor=none;fillStyle=auto;strokeWidth=1;rounded=1;glass=0;swimlaneLine=0;shadow=1;" parent="1" vertex="1">
@@ -112,7 +123,7 @@
                 <mxCell id="52" value="+ __init__(int)&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent;&quot;&gt;validate(int): bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent;&quot;&gt;+ valor():int&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent;&quot;&gt;+ __eq__(): bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); background-color: transparent;&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ __str__(): string&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=1;" parent="49" vertex="1">
                     <mxGeometry y="60" width="160" height="83" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;b style=&quot;&quot;&gt;1&lt;/b&gt;&lt;/font&gt;" style="edgeStyle=none;rounded=1;html=1;endArrow=diamond;endFill=1;strokeWidth=4;strokeColor=#FFFF00;endSize=14;entryX=0.984;entryY=0.792;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.001;exitY=0.246;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="52" target="3" edge="1">
+                <mxCell id="53" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;b style=&quot;&quot;&gt;1&lt;/b&gt;&lt;/font&gt;" style="edgeStyle=none;rounded=1;html=1;endArrow=diamond;endFill=0;strokeWidth=3;strokeColor=#FFFF00;endSize=14;entryX=0.984;entryY=0.792;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.001;exitY=0.246;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="52" target="3" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="1197" y="590" as="targetPoint"/>
                         <mxPoint x="1266.08" y="591.956" as="sourcePoint"/>
@@ -132,7 +143,7 @@
                 <mxCell id="57" value="+ __init__(float)&lt;div&gt;&lt;div&gt;- validate(float): bool&lt;/div&gt;&lt;/div&gt;&lt;div&gt;+ valor():float&lt;/div&gt;&lt;div&gt;+ producto_id() ProductoID&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ __eq__(): bool&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;+ __str__(): string&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=1;" parent="54" vertex="1">
                     <mxGeometry y="71" width="160" height="102" as="geometry"/>
                 </mxCell>
-                <mxCell id="58" style="edgeStyle=none;html=1;entryX=0;entryY=0.22;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.994;exitY=0.148;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=4;strokeColor=#FFFF33;" parent="1" source="57" target="25" edge="1">
+                <mxCell id="58" style="edgeStyle=none;html=1;entryX=0;entryY=0.22;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.994;exitY=0.148;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=3;strokeColor=#FFFF33;endArrow=diamond;endFill=0;endSize=15;rounded=1;" parent="1" source="57" target="25" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
