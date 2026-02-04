@@ -23,13 +23,13 @@
 ### *Diagrama de Base de Datos de Productos*
 
 ---
-![Diagrama_UML_del_Subsistema_de_Precios](https://github.com/shinovi9/Subsistema-Precio/blob/Daniel-Version/Docs/ProductosDB.png)
+![Diagrama_de_la_estructura_de_ProductosDB](https://github.com/shinovi9/Subsistema-Precio/blob/Daniel-Version/Docs/ProductosDB.png)
 
 ---
 
 ### *Diagrama de Base de Datos de Precios*
 
 ---
-![Diagrama_UML_del_Subsistema_de_Precios](https://github.com/shinovi9/Subsistema-Precio/blob/Daniel-Version/Docs/PreciosDB.png)
+![Diagrama_de_la_estructura_de_PreciosDB](https://github.com/shinovi9/Subsistema-Precio/blob/Daniel-Version/Docs/PreciosDB.png)
 
 ---
