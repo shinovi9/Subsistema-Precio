@@ -9,3 +9,4 @@
 **SubSistema**  Gestor de Precios en una cadena de mercados.
 
 * Donde habrá un Listado de Precios por Producto(**Precio/Producto**).
+* Existirá la posibilidad que un **Producto** tenga mas de un **Precio**
