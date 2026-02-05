@@ -5,14 +5,17 @@ from productoID import ProductoID
 from precio import Precio
 
 class ProductoRepository(IPrecioProvider):
-    __lista_producto : list[dict[int,str]]
+    __lista_producto : list[Producto]
+    
+    def __init__(self):
+        super().__init__()
     
     @staticmethod
-    def new_producto() -> Producto:
+    def new_producto(producto_id : ProductoID) -> Producto:
         pass
     
     @classmethod
-    def de_list_Producto(cls,id : ProductoID) -> Producto :
+    def de_list_Producto(cls,producto_id : ProductoID) -> Producto :
         pass
     
     @classmethod

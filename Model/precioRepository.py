@@ -7,16 +7,21 @@ from precio import Precio
 
 class PrecioRepository(IPrecioProvider):
     
+    __lista_precios : list[Precio]
+    
+    def __init__(self):
+        super().__init__()
+    
     @staticmethod
-    def new_precio(producto ,precio)-> dict[int,float]:
+    def new_precio(producto : ProductoID ,precio : float)-> Precio:
         pass
     
     @classmethod
-    def incluir_precio(cls,producto : ProductoID, precio : Precio):
+    def incluir_precio(cls,precio : Precio):
         pass
     
     @classmethod
-    def de_list_precio(cls,producto_id : ProductoID)-> tuple[float]:
+    def buscar_por_id(cls,producto_id : ProductoID)-> tuple[Precio]:
         pass
     
     @classmethod

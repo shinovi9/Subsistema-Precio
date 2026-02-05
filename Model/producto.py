@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 from interfaces import IPrecioProvider
 from productoID import ProductoID
-from productoName import ProductoName
 
 
 class Producto(IPrecioProvider):
     def __init__(self, id : ProductoID):
         super().__init__()
         self.__ID = id
-        self.__name = ProductoName()
+        self.__name : str
     
-    def set_name(self,new_name = ProductoName):
+    def set_name(self,new_name : str):
         pass
     
     @property
@@ -18,10 +17,10 @@ class Producto(IPrecioProvider):
         return self.__ID
     
     @property
-    def name(self) -> ProductoName:
+    def name(self) -> str:
         return self.__name
     
-    def get_precio():
+    def get_precio(self):
         pass
     
     def __eq__(self, value) -> bool:
