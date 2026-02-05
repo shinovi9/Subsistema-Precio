@@ -11,13 +11,13 @@ class ProductoID:
     
     @property
     def valor(self) -> int:
-        pass
+        return self.__valor
     
     def __validate(valor : int) -> bool:
-        pass
+        return True if valor > 0 else False
     
-    def __eq__(self, value) -> bool:
-        pass
+    def __eq__(self, other) -> bool:
+        return True if other.valor == self.valor else False
     
     def __str__(self) -> str:
-        pass
+        return str(self.valor)

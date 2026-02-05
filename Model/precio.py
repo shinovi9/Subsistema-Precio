@@ -11,17 +11,21 @@ class Precio:
         self.__producto__id = productoID
         
     def __validate(valor : float) -> bool:
-        pass
-    @property
-    def producto__id() -> ProductoID:
-        pass
+        return True if valor >= 0.0 else False
     
     @property
-    def valor() -> float:
-        pass
+    def producto__id(self) -> ProductoID:
+        return self.__producto__id
     
-    def __eq__(self, value) -> bool:
-        pass
+    @property
+    def valor(self) -> float:
+        return self.__valor
+    
+    def __eq__(self, other) -> bool:
+        if other.valor == self.valor and \
+            other.producto__id == self.producto__id:
+                return True
+        return False
     
     def __str__(self) -> str:
-        pass
+        return f"Precio {self.producto__id} {self.valor}"

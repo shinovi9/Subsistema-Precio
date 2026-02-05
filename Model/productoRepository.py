@@ -8,7 +8,7 @@ class ProductoRepository(IPrecioProvider):
     __lista_producto : list[Producto]
     
     def __init__(self):
-        super().__init__()
+        ProductoRepository.cargar_productos()
     
     @staticmethod
     def new_producto(producto_id : ProductoID) -> Producto:

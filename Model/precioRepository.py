@@ -10,7 +10,7 @@ class PrecioRepository(IPrecioProvider):
     __lista_precios : list[Precio]
     
     def __init__(self):
-        super().__init__()
+        PrecioRepository.cargar_precios()
     
     @staticmethod
     def new_precio(producto : ProductoID ,precio : float)-> Precio:

@@ -7,10 +7,10 @@ class Producto(IPrecioProvider):
     def __init__(self, id : ProductoID):
         super().__init__()
         self.__ID = id
-        self.__name : str
+        self.__name : str  = ""
     
     def set_name(self,new_name : str):
-        pass
+        self.__name = new_name.capitalize()
     
     @property
     def id(self) -> ProductoID:
@@ -23,8 +23,11 @@ class Producto(IPrecioProvider):
     def get_precio(self):
         pass
     
-    def __eq__(self, value) -> bool:
-        pass
+    def __eq__(self, other) -> bool:
+        if other.name == self.name and\
+            other.id == self.id:
+                return True
+        return False
     
     def __str__(self) -> str:
-        pass
+        return f"Precio {self.id} {self.name}"
