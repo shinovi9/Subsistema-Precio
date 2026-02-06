@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 from interfaces import IPrecioProvider
-from producto import Producto
 from productoID import ProductoID
+from producto import Producto
 from precio import Precio
+from pathlib import Path
+import json
 
 class ProductoRepository(IPrecioProvider):
     __lista_producto : list[Producto]
+    __counter_obj = 0
     
     def __init__(self):
-        ProductoRepository.cargar_productos()
+        if ProductoRepository.__counter_obj == 0:
+            ProductoRepository.__lista_producto = ProductoRepository.__cargar_productos()
+            ProductoRepository.__counter_obj += 1
     
     @staticmethod
     def new_producto(producto_id : ProductoID) -> Producto:
@@ -26,9 +31,54 @@ class ProductoRepository(IPrecioProvider):
     def ultimo_incluido(cls) -> ProductoID:
         pass
     
-    @classmethod
-    def cargar_productos(cls):
-        pass
+    @staticmethod
+    def __cargar_Data() -> list:
+        """## Carga la base de datos de productos desde ProductoDB.json
+
+        Raises:
+            ValueError: Si el JSON no contiene una lista de productos
+            ValueError: Error al decodificar JSON
+
+        Returns:
+            list: Una lista de producto en forma de dict en caso de que no este vacía
+        """
+        # Ruta del archivo JSON (sube un nivel y entra a Data/)
+        directorio_actual = Path(__file__).parent
+        ruta = directorio_actual.parent / "Data" / "ProductoDB.json"
+        
+        if not ruta.exists():
+            ruta.parent.mkdir(parents=True, exist_ok=True)  # Crear carpeta si no existe
+            ruta.write_text("[]", encoding="utf-8")
+            return []
+        
+        # Si existe pero está vacío, escribir lista vacía
+        if ruta.stat().st_size == 0:
+            ruta.write_text("[]", encoding="utf-8")
+            return []
+        
+        try:
+            # Cargar contenido
+            data = json.loads(ruta.read_text(encoding="utf-8"))
+            # Validar que sea lista
+            if not isinstance(data, list):
+                raise ValueError("El JSON no contiene una lista de productos.")
+            return data
+        
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Error al decodificar JSON: {e}")
+        
+        
+    @staticmethod
+    def __cargar_productos() -> list:
+        lista_dict_Productos = ProductoRepository.__cargar_Data()
+        lista_productos: list = []
+        for product_dict in lista_dict_Productos:
+            id_obj = ProductoID(product_dict["ID"])
+            name = product_dict["nombre"]
+            producto = Producto(id_obj)
+            producto.set_name(name)
+            lista_productos.append(producto)
+        return lista_productos
     
     @classmethod
     def guardar_cambios(cls):

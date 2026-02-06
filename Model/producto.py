@@ -10,7 +10,8 @@ class Producto(IPrecioProvider):
         self.__name : str  = ""
     
     def set_name(self,new_name : str):
-        self.__name = new_name.capitalize()
+        new_name = new_name.strip().capitalize().replace(" ","_")
+        self.__name = new_name
     
     @property
     def id(self) -> ProductoID:
@@ -20,10 +21,15 @@ class Producto(IPrecioProvider):
     def name(self) -> str:
         return self.__name
     
+    def a_dict(self) -> dict:
+        return {"ID" : self.__ID.valor, "nombre": self.name}
+    
     def get_precio(self):
         pass
     
     def __eq__(self, other) -> bool:
+        if type(other) != Producto:
+            return False
         if other.name == self.name and\
             other.id == self.id:
                 return True

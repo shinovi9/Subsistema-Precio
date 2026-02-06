@@ -22,6 +22,8 @@ class Precio:
         return self.__valor
     
     def __eq__(self, other) -> bool:
+        if type(other) != Precio:
+            return False
         if other.valor == self.valor and \
             other.producto__id == self.producto__id:
                 return True
