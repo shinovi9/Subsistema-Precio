@@ -27,9 +27,42 @@ class PrecioRepository(IPrecioProvider):
     @classmethod
     def buscar_por_id(cls,producto_id : ProductoID)-> tuple[Precio]:
         pass
+    
     @staticmethod
     def __cargar_Data() -> list:
-        pass
+        """## Carga la base de datos de productos desde PreciosDB.json
+
+        Raises:
+            ValueError: Si el JSON no contiene una lista de precios
+            ValueError: Error al decodificar JSON
+
+        Returns:
+            list: Una lista de precios en forma de dict en caso de que no este vacía
+        """
+        # Ruta del archivo JSON (sube un nivel y entra a Data/)
+        directorio_actual = Path(__file__).parent
+        ruta = directorio_actual.parent / "Data" / "PreciosDB.json"
+        
+        if not ruta.exists():
+            ruta.parent.mkdir(parents=True, exist_ok=True)  # Crear carpeta si no existe
+            ruta.write_text("[]", encoding="utf-8")
+            return []
+        
+        # Si existe pero está vacío, escribir lista vacía
+        if ruta.stat().st_size == 0:
+            ruta.write_text("[]", encoding="utf-8")
+            return []
+        
+        try:
+            # Cargar contenido
+            data = json.loads(ruta.read_text(encoding="utf-8"))
+            # Validar que sea lista
+            if not isinstance(data, list):
+                raise ValueError("El JSON no contiene una lista de precios.")
+            return data
+        
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Error al decodificar JSON: {e}")
     
     @staticmethod
     def __cargar_precios() -> list:

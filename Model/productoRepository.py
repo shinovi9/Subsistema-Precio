@@ -33,7 +33,7 @@ class ProductoRepository(IPrecioProvider):
     
     @staticmethod
     def __cargar_Data() -> list:
-        """## Carga la base de datos de productos desde ProductoDB.json
+        """## Carga la base de datos de productos desde ProductosDB.json
 
         Raises:
             ValueError: Si el JSON no contiene una lista de productos
@@ -44,7 +44,7 @@ class ProductoRepository(IPrecioProvider):
         """
         # Ruta del archivo JSON (sube un nivel y entra a Data/)
         directorio_actual = Path(__file__).parent
-        ruta = directorio_actual.parent / "Data" / "ProductoDB.json"
+        ruta = directorio_actual.parent / "Data" / "ProductosDB.json"
         
         if not ruta.exists():
             ruta.parent.mkdir(parents=True, exist_ok=True)  # Crear carpeta si no existe
