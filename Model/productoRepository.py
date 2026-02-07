@@ -15,9 +15,30 @@ class ProductoRepository(IPrecioProvider):
             ProductoRepository.__lista_producto = ProductoRepository.__cargar_productos()
             ProductoRepository.__counter_obj += 1
     
-    @staticmethod
-    def new_producto(producto_id : ProductoID) -> Producto:
-        pass
+        
+    @classmethod
+    def existe(cls, id : ProductoID) -> bool:
+        # Verificar si existe
+        existe = any(p.id == id for p in ProductoRepository.__lista_producto)
+        return existe
+    
+    @classmethod
+    def new_producto(cls, producto_id: ProductoID) -> Producto:
+        # Si no hay productos, cualquier ID es válido
+        if not ProductoRepository._ProductoRepository__lista_producto:
+            return Producto(producto_id)
+    
+        max_id = max(
+            ProductoRepository._ProductoRepository__lista_producto,
+            key=lambda p: p.id.valor
+        ).id.valor
+    
+        if producto_id.valor == (max_id + 1):
+            return Producto(producto_id)
+    
+        raise ValueError(
+            f"El ID de producto ({producto_id.valor}) debe ser mayor en 1, que el máximo existente ({max_id})."
+        )
     
     @classmethod
     def de_list_Producto(cls,producto_id : ProductoID) -> Producto :
@@ -87,5 +108,3 @@ class ProductoRepository(IPrecioProvider):
     @classmethod
     def get_precio(cls,id : ProductoID)-> Precio:
         pass
-    
-    

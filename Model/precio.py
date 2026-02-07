@@ -29,5 +29,8 @@ class Precio:
                 return True
         return False
     
+    def a_dict(self) -> dict:
+        return {"producto" : self.__producto__id.valor, "valor": self.valor}
+    
     def __str__(self) -> str:
         return f"Precio {self.producto__id} {self.valor}"

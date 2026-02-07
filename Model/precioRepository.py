@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+from productoRepository import ProductoRepository
 from interfaces import IPrecioProvider
 from productoID import ProductoID
-from producto import Producto
+#from producto import Producto
 from precio import Precio
 from pathlib import Path
 import json
@@ -17,8 +18,10 @@ class PrecioRepository(IPrecioProvider):
             PrecioRepository.__counter_obj += 1
     
     @staticmethod
-    def new_precio(producto : ProductoID ,precio : float)-> Precio:
-        pass
+    def new_precio(producto : ProductoID ,valor : float)-> Precio:
+        if ProductoRepository.existe(producto):
+            return Precio(producto, valor)
+        raise ValueError("Producto inexistente")
     
     @classmethod
     def incluir_precio(cls,precio : Precio):
@@ -66,7 +69,14 @@ class PrecioRepository(IPrecioProvider):
     
     @staticmethod
     def __cargar_precios() -> list:
-        pass
+        lista_dict_Precios = PrecioRepository.__cargar_Data()
+        lista_precios: list = []
+        for precio_dict in lista_dict_Precios:
+            id_obj = ProductoID(precio_dict["producto"])
+            valor = precio_dict["valor"]
+            precio = Precio(id_obj, valor)
+            lista_precios.append(precio)
+        return lista_precios
     
     @classmethod
     def guardar_cambios(cls):
