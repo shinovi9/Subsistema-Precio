@@ -28,8 +28,8 @@ class Producto(IPrecioProvider):
         pass
     
     def __eq__(self, other) -> bool:
-        if type(other) != Producto:
-            return False
+        if not isinstance(other, Producto):
+            return NotImplemented
         if other.name == self.name and\
             other.id == self.id:
                 return True

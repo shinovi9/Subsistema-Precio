@@ -25,11 +25,14 @@ class PrecioRepository(IPrecioProvider):
     
     @classmethod
     def incluir_precio(cls,precio : Precio):
-        pass
+        cls.__lista_precios.append(precio)
     
     @classmethod
-    def buscar_por_id(cls,producto_id : ProductoID)-> tuple[Precio]:
-        pass
+    def buscar_por_id(cls,id : ProductoID)-> tuple[Precio]:
+        coincidencias = [p for p in cls.__lista_precios if p.producto__id == id]
+        if coincidencias:
+            return tuple(coincidencias)
+        raise OverflowError(f"No hay precios actualmente de este producto {id}")
     
     @staticmethod
     def __cargar_Data() -> list:
@@ -71,6 +74,7 @@ class PrecioRepository(IPrecioProvider):
     def __cargar_precios() -> list:
         lista_dict_Precios = PrecioRepository.__cargar_Data()
         lista_precios: list = []
+        
         for precio_dict in lista_dict_Precios:
             id_obj = ProductoID(precio_dict["producto"])
             valor = precio_dict["valor"]
@@ -82,5 +86,6 @@ class PrecioRepository(IPrecioProvider):
     def guardar_cambios(cls):
         pass
     
-    def get_precio():
+    @classmethod
+    def get_precio(cls):
         pass

@@ -14,22 +14,21 @@ class ProductoRepository(IPrecioProvider):
         if ProductoRepository.__counter_obj == 0:
             ProductoRepository.__lista_producto = ProductoRepository.__cargar_productos()
             ProductoRepository.__counter_obj += 1
-    
         
     @classmethod
     def existe(cls, id : ProductoID) -> bool:
         # Verificar si existe
-        existe = any(p.id == id for p in ProductoRepository.__lista_producto)
+        existe = any(p.id == id for p in cls.__lista_producto)
         return existe
     
     @classmethod
     def new_producto(cls, producto_id: ProductoID) -> Producto:
         # Si no hay productos, cualquier ID es válido
-        if not ProductoRepository._ProductoRepository__lista_producto:
+        if not cls.__lista_producto:
             return Producto(producto_id)
     
         max_id = max(
-            ProductoRepository._ProductoRepository__lista_producto,
+            cls.__lista_producto,
             key=lambda p: p.id.valor
         ).id.valor
     
@@ -42,15 +41,22 @@ class ProductoRepository(IPrecioProvider):
     
     @classmethod
     def de_list_Producto(cls,producto_id : ProductoID) -> Producto :
-        pass
+        resultado = next((p for p in cls.__lista_producto if p.id == producto_id), None)
+        if resultado: 
+            return resultado
+        raise ValueError("Producto inexistente") 
     
     @classmethod
     def incluir_producto(cls,producto : Producto):
-        pass
-    
+        if cls.existe(producto.id):
+            raise ValueError(f"Producto ya esta presente en la lista\n{producto}")
+        cls.__lista_producto.append(producto)
+        
     @classmethod
     def ultimo_incluido(cls) -> ProductoID:
-        pass
+        if len(cls.__lista_producto) == 0:
+            raise OverflowError("No hay productos actualmente")
+        return cls.__lista_producto[-1] .id   
     
     @staticmethod
     def __cargar_Data() -> list:
@@ -93,12 +99,14 @@ class ProductoRepository(IPrecioProvider):
     def __cargar_productos() -> list:
         lista_dict_Productos = ProductoRepository.__cargar_Data()
         lista_productos: list = []
+        
         for product_dict in lista_dict_Productos:
             id_obj = ProductoID(product_dict["ID"])
             name = product_dict["nombre"]
             producto = Producto(id_obj)
             producto.set_name(name)
             lista_productos.append(producto)
+        
         return lista_productos
     
     @classmethod

@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="nzTRskKZavFGR_vE6VzC" name="Página-1">
-        <mxGraphModel dx="478" dy="410" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#24273A" math="0" shadow="0">
+        <mxGraphModel dx="598" dy="513" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" background="#24273A" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -84,16 +84,6 @@
                 </mxCell>
                 <mxCell id="42" value="+ get_precio(int): float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;rounded=1;" parent="39" vertex="1">
                     <mxGeometry y="34" width="160" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="47" style="edgeStyle=none;html=1;entryX=0.406;entryY=0.03;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;strokeWidth=3;strokeColor=#D5D500;entryPerimeter=0;opacity=90;endArrow=open;endFill=0;rounded=1;endSize=12;" parent="1" target="2" edge="1">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="582.5" y="527" as="sourcePoint"/>
-                        <mxPoint x="1141.9999999999998" y="527" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="583" y="455"/>
-                            <mxPoint x="1091" y="455"/>
-                        </Array>
-                    </mxGeometry>
                 </mxCell>
                 <mxCell id="45" style="edgeStyle=none;html=1;entryX=0.497;entryY=0.891;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.479;exitY=-0.005;exitDx=0;exitDy=0;strokeWidth=5;strokeColor=#FFFF00;endArrow=block;endFill=0;endSize=15;exitPerimeter=0;rounded=1;" parent="1" source="26" target="42" edge="1">
                     <mxGeometry relative="1" as="geometry">

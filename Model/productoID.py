@@ -16,8 +16,8 @@ class ProductoID:
         return True if valor > 0 else False
     
     def __eq__(self, other) -> bool:
-        if type(other) != ProductoID:
-            return False
+        if not isinstance(other, ProductoID):
+            return NotImplemented
         return True if other.valor == self.valor else False
     
     def __str__(self) -> str:
