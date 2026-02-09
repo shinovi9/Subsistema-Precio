@@ -19,7 +19,7 @@ class ProductoRepository(IPrecioProvider):
     ```
     """
     # Ruta del archivo JSON (sube un nivel y entra a Data/)
-    __directorio_actual = Path(__file__).parent
+    __directorio_actual = Path(__file__).parent.parent
     __ruta = __directorio_actual.parent / "Data" / "Productos" / "ProductosDB.json"
 
     __lista_producto: list[Producto]
