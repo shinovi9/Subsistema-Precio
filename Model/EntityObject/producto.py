@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-from productoRepository import ProductoRepository
+from Model.Repository.productoRepository import ProductoRepository
+from Model.ValueObject.productoID import ProductoID
 from interfaces import IPrecioProvider
-from productoID import ProductoID
 
 
 class Producto(IPrecioProvider):

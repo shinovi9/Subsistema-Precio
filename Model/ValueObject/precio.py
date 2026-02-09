@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from productoID import ProductoID
+from Model.ValueObject.productoID import ProductoID
 
 class Precio:
     
