@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-from Model.Repository.productoRepository import ProductoRepository
-from Model.Repository.precioRepository import PrecioRepository
-from Model.ValueObject.productoID import ProductoID
-from Model.EntityObject.producto import Producto
-from Model.ValueObject.precio import Precio
-
+from Model import ProductoRepository, PrecioRepository, ProductoID
 
 """### ejemplo de uso
     ```

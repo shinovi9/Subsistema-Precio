@@ -13,15 +13,15 @@ class Precio:
             self.__valor = valor
         else:
             raise ValueError()
-        self.__producto__id = productoID
+        self.__producto_id = productoID
 
     @property
-    def producto__id(self) -> ProductoID:
+    def producto_id(self) -> ProductoID:
         """### Obtiene el identificador del producto asociado al precio.
         Returns:
             ProductoID: El identificador del producto.
         """
-        return self.__producto__id
+        return self.__producto_id
 
     @property
     def valor(self) -> float:
@@ -38,20 +38,18 @@ class Precio:
         """
         if not isinstance(other, Precio):
             return NotImplemented
-        if other.valor == self.valor and other.producto__id == self.producto__id:
-            return True
-        return False
+        return other.valor == self.valor and other.producto_id == self.producto_id
 
     def a_dict(self) -> dict:
         """### Convierte el objeto Precio en un diccionario.
         Returns:
             dict: Representación del precio con las claves 'producto' y 'valor'.
         """
-        return {"producto": self.__producto__id.valor, "valor": self.valor}
+        return {"producto": self.__producto_id.valor, "valor": self.valor}
 
     def __str__(self) -> str:
         """### Devuelve una representación en cadena del objeto Precio.
         Returns:
             str: Texto descriptivo con el ProductoID y el valor del precio.
         """
-        return f"Precio: Producto[{self.producto__id.valor}] = {self.valor}$"
+        return f"Precio: Producto[{self.producto_id.valor}] = {self.valor}$"

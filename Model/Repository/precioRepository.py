@@ -49,7 +49,7 @@ class PrecioRepository:
         Returns:
             list: Lista de objetos Precio correspondientes al ProductoID solicitado.
         """
-        coincidencias = [p for p in self._lista_precios if p.producto__id == id]
+        coincidencias = [p for p in self._lista_precios if p.producto_id == id]
         if coincidencias:
             return coincidencias
         raise OverflowError(f"No hay precios actualmente de este producto {id}")
@@ -103,7 +103,7 @@ class PrecioRepository:
                 indent=4
             )
 
-    def get_precio(self, id_producto, aproximado = float):
+    def get_precio(self, id_producto):
         """#### Obtiene todos los precios asociados a un producto mediante su ProductoID.
 
         Raises:
@@ -112,7 +112,7 @@ class PrecioRepository:
             tuple: Una tupla con los objetos Precio correspondientes al ProductoID solicitado.
         """
         if self._producto_repo.existe(id_producto):
-            return (p for p in self.buscar_por_id(id_producto) if(p == aproximado))
+            return tuple(self.buscar_por_id(id_producto))
         raise ValueError("Precios inexistente")
 
     def eliminar_precio(self, producto_id, valor):
@@ -121,7 +121,7 @@ class PrecioRepository:
             ValueError: Si no se encuentra un precio con el ProductoID y valor indicados.
         """
         precio_obj = next(
-            (p for p in self._lista_precios if p.producto__id == producto_id and p.valor == valor),
+            (p for p in self._lista_precios if p.producto_id == producto_id and p.valor == valor),
             None
         )
         if precio_obj:

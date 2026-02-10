@@ -1,7 +1,7 @@
 [
     {
         "producto": 1,
-        "valor": 10000000009.0
+        "valor": 2009.0
     },
     {
         "producto": 2,
@@ -9,10 +9,6 @@
     },
     {
         "producto": 3,
-        "valor": 10009.0
-    },
-    {
-        "producto": 1,
-        "valor": 19.0
+        "valor": 309.0
     }
 ]
