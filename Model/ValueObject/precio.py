@@ -9,18 +9,11 @@ class Precio:
         Raises:
             ValueError: Se lanza si el valor es negativo.
         """
-        if self.__validate(valor):  
+        if valor >= 0.0: 
             self.__valor = valor
         else:
             raise ValueError()
         self.__producto__id = productoID
-
-    def __validate(valor: float) -> bool:
-        """### Valida que el valor del precio sea mayor o igual a 0.
-        Returns:
-            bool: True si el valor es válido, False en caso contrario.
-        """
-        return True if valor >= 0.0 else False
 
     @property
     def producto__id(self) -> ProductoID:
@@ -61,4 +54,4 @@ class Precio:
         Returns:
             str: Texto descriptivo con el ProductoID y el valor del precio.
         """
-        return f"Precio {self.producto__id} {self.valor}"
+        return f"Precio: Producto[{self.producto__id.valor}] = {self.valor}$"

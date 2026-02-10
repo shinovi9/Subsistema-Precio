@@ -1,23 +1,10 @@
 #!/usr/bin/env python3
-from Model.Repository.precioRepository import PrecioRepository
 from Model.ValueObject.productoID import ProductoID
 from Model.EntityObject.producto import Producto
-from interfaces import IPrecioProvider
 from pathlib import Path
 import json
 
-class ProductoRepository(IPrecioProvider):
-    """### ejemplo de uso 
-    ```
-    ______________________________________________________________________
-        repo = ProductoRepository()          # carga datos la primera vez
-        nuevo = repo.new_producto(ProductoID(1))
-        nuevo.set_name("ejemplo")
-        repo.incluir_producto(nuevo)         # persiste en JSON
-        p = repo.get_precio(nuevo.id)        # obtiene precios (tupla)
-    ______________________________________________________________________
-    ```
-    """
+class ProductoRepository:
     # Ruta del archivo JSON (sube un nivel y entra a Data/)
     __directorio_actual = Path(__file__).parent.parent
     __ruta = __directorio_actual.parent / "Data" / "Productos" / "ProductosDB.json"
@@ -25,7 +12,7 @@ class ProductoRepository(IPrecioProvider):
     __lista_producto: list[Producto]
     __counter_obj = 0
 
-    def __init__(self, precio_repo: PrecioRepository = None):
+    def __init__(self):
         """### Inicializa el repositorio de productos.
         Si es la primera instancia creada, carga los productos en memoria.
         Recibe opcionalmente una instancia de PrecioRepository para consultas de precios.
@@ -36,7 +23,7 @@ class ProductoRepository(IPrecioProvider):
             ProductoRepository.__counter_obj += 1
 
         # repositorio de precios asociado (instancia)
-        self._precio_repo = precio_repo or PrecioRepository()
+        #self._precio_repo = precio_repo or PrecioRepository()
 
     def existe(self, id: ProductoID) -> bool:
         """### Verifica si un producto con el ProductoID indicado existe en la lista interna.
@@ -60,7 +47,7 @@ class ProductoRepository(IPrecioProvider):
             return Producto(producto_id)
 
         max_id = max(lista, key=lambda p: p.id.valor).id.valor
-        if producto_id.valor == (max_id + 1):
+        if producto_id.valor <= (max_id + 1):
             return Producto(producto_id)
 
         raise ValueError(
@@ -131,7 +118,7 @@ class ProductoRepository(IPrecioProvider):
         lista_productos: list = []
 
         for product_dict in lista_dict_Productos:
-            id_obj = ProductoID(product_dict["ID"])
+            id_obj = ProductoID(int(product_dict["ID"]))
             name = product_dict["nombre"]
             producto = Producto(id_obj)
             producto.set_name(name)
@@ -149,18 +136,3 @@ class ProductoRepository(IPrecioProvider):
                 ensure_ascii=False,
                 indent=4
             )
-
-    def get_precio(self, id: ProductoID) -> tuple:
-        """### Obtiene los precios asociados a un producto mediante su ProductoID.
-
-        Ahora delega la consulta a la instancia de PrecioRepository asociada
-        (self._precio_repo) para ser compatible con la versión por instancia.
-
-        Raises:
-            ValueError: Si el producto no existe.
-        Returns:
-            tuple: Tupla con objetos Precio.
-        """
-        if self.existe(id):
-            return self._precio_repo.get_precio(id)
-        raise ValueError("Precios inexistente")

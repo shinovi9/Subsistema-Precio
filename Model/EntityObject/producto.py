@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
-from Model.Repository.productoRepository import ProductoRepository
 from Model.ValueObject.productoID import ProductoID
-from interfaces import IPrecioProvider
 
 
-class Producto(IPrecioProvider):
+class Producto:
+
     def __init__(self, id: ProductoID):
         """### Inicializa un objeto Producto con su identificador único.
 
         Args:
             id (ProductoID): Identificador del producto.
         """
-        super().__init__()
         self.__ID = id
         self.__name: str = ""
 
@@ -53,17 +51,6 @@ class Producto(IPrecioProvider):
         """
         return {"ID": self.__ID.valor, "nombre": self.name}
 
-    def get_precio(self):
-        """#### Obtiene todos los precios asociados a este producto utilizando su identificador en el ProductoRepository.
-
-        Raises:
-            ValueError: Se lanza si el producto no existe en el repositorio o no tiene precios registrados.
-        Returns:
-            tuple: Una tupla con los objetos Precio correspondientes a este producto.
-        """
-        return ProductoRepository.get_precio(self.id)
-
-
     def __eq__(self, other) -> bool:
         """### Compara dos objetos Producto para verificar si son iguales.
 
@@ -72,9 +59,7 @@ class Producto(IPrecioProvider):
         """
         if not isinstance(other, Producto):
             return NotImplemented
-        if other.name == self.name and other.id == self.id:
-            return True
-        return False
+        return other.name == self.name and other.id == self.id
 
     def __str__(self) -> str:
         """## Devuelve una representación en cadena del objeto Producto.
@@ -83,3 +68,4 @@ class Producto(IPrecioProvider):
             str: Texto descriptivo con el ID y el nombre del producto.
         """
         return f"Precio {self.id} {self.name}"
+    

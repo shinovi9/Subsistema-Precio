@@ -2,37 +2,11 @@
 from Model.Repository.productoRepository import ProductoRepository
 from Model.ValueObject.productoID import ProductoID
 from Model.ValueObject.precio import Precio
-from interfaces import IPrecioProvider
 from pathlib import Path
 import json
 
-class PrecioRepository(IPrecioProvider):
-    """### ejemplo de uso
-    ```
-    ______________________________________________________________________________________________
-        # crear repositorios (precio_repo recibe opcionalmente producto_repo)
-        producto_repo = ProductoRepository()                 # carga productos desde JSON
-        precio_repo = PrecioRepository(producto_repo)        # carga precios desde JSON
-
-        # crear un nuevo precio para un producto existente
-        pid = ProductoID(2)
-        nuevo_precio = precio_repo.new_precio(pid, 1009.0)   # valida que el producto exista
-        precio_repo.incluir_precio(nuevo_precio)             # añade y persiste en JSON
-
-        # obtener todos los precios de un producto (tupla)
-        precios = precio_repo.get_precio(pid)
-
-        # eliminar un precio específico (producto_id, valor)
-        precio_repo.eliminar_precio(pid, 1009.0)
-
-        # comprobar que se eliminó (buscar_por_id lanzará OverflowError si no hay precios)
-        try:
-            precios = precio_repo.buscar_por_id(pid)
-        except OverflowError:
-            print("No hay precios para el producto", pid)
-    ____________________________________________________________________________________________
-    ```
-    """
+class PrecioRepository:
+    
     # Ruta del archivo JSON (sube un nivel y entra a Data/)
     __directorio_actual = Path(__file__).parent.parent
     __ruta = __directorio_actual.parent / "Data" / "Precios" / "PreciosDB.json"
@@ -105,24 +79,22 @@ class PrecioRepository(IPrecioProvider):
             raise ValueError(f"Error al decodificar JSON: {e}")
 
     @staticmethod
-    def __cargar_precios():
-        """
-        Carga los precios desde la fuente de datos JSON y los convierte en objetos Precio.
+    def __cargar_precios() -> list:
+        """#### Carga los precios desde la fuente de datos JSON y los convierte en objetos Precio.
+        
         """
         lista_dict_Precios = PrecioRepository.__cargar_Data()
         lista_precios = []
 
         for precio_dict in lista_dict_Precios:
             id_obj = ProductoID(precio_dict["producto"])
-            valor = precio_dict["valor"]
+            valor = float(precio_dict["valor"])
             precio = Precio(id_obj, valor)
             lista_precios.append(precio)
         return lista_precios
 
     def guardar_cambios(self):
-        """
-        Guarda los cambios realizados en la lista de la instancia sobrescribiendo el JSON.
-        """
+        """### Guarda los cambios realizados en la lista de la instancia sobrescribiendo el JSON."""
         with self.__class__.__ruta.open("w", encoding="utf-8") as f:
             json.dump(
                 [precio.a_dict() for precio in self._lista_precios],
@@ -131,9 +103,8 @@ class PrecioRepository(IPrecioProvider):
                 indent=4
             )
 
-    def get_precio(self, id_producto):
-        """
-        Obtiene todos los precios asociados a un producto mediante su ProductoID.
+    def get_precio(self, id_producto, aproximado = float):
+        """#### Obtiene todos los precios asociados a un producto mediante su ProductoID.
 
         Raises:
             ValueError: Si el producto indicado no existe en el repositorio de productos.
@@ -141,13 +112,11 @@ class PrecioRepository(IPrecioProvider):
             tuple: Una tupla con los objetos Precio correspondientes al ProductoID solicitado.
         """
         if self._producto_repo.existe(id_producto):
-            return tuple(self.buscar_por_id(id_producto))
+            return (p for p in self.buscar_por_id(id_producto) if(p == aproximado))
         raise ValueError("Precios inexistente")
 
     def eliminar_precio(self, producto_id, valor):
-        """
-        Elimina un precio específico de la lista de la instancia, identificado por su ProductoID y valor.
-
+        """#### Elimina un precio específico de la lista de la instancia, identificado por su ProductoID y valor.
         Raises:
             ValueError: Si no se encuentra un precio con el ProductoID y valor indicados.
         """

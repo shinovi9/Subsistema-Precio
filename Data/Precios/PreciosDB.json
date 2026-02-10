@@ -1,5 +1,18 @@
 [
-    {"producto" : 1, "valor" : 10000000009.00},
-    {"producto" : 2, "valor" : 1009.00},
-    {"producto" : 3, "valor" : 10009.00}
+    {
+        "producto": 1,
+        "valor": 10000000009.0
+    },
+    {
+        "producto": 2,
+        "valor": 1009.0
+    },
+    {
+        "producto": 3,
+        "valor": 10009.0
+    },
+    {
+        "producto": 1,
+        "valor": 19.0
+    }
 ]
