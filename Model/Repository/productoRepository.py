@@ -10,17 +10,13 @@ class ProductoRepository:
     __ruta = __directorio_actual.parent / "Data" / "Productos" / "ProductosDB.json"
 
     __lista_producto: list[Producto]
-    __counter_obj = 0
 
     def __init__(self):
         """### Inicializa el repositorio de productos.
         Si es la primera instancia creada, carga los productos en memoria.
         Recibe opcionalmente una instancia de PrecioRepository para consultas de precios.
         """
-        # inicialización compartida de la lista (comportamiento original)
-        if ProductoRepository.__counter_obj == 0:
-            ProductoRepository.__lista_producto = ProductoRepository.__cargar_productos()
-            ProductoRepository.__counter_obj += 1
+        ProductoRepository.__lista_producto = ProductoRepository.__cargar_productos()
 
         # repositorio de precios asociado (instancia)
         #self._precio_repo = precio_repo or PrecioRepository()

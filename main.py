@@ -25,8 +25,8 @@ from Model import ProductoRepository, PrecioRepository, ProductoID
         except OverflowError:
             print("No hay precios para el producto", pid)
     ____________________________________________________________________________________________
-    ```
-"""
+    ``` 
+"""  
 """### ejemplo de uso 
 ```
 ______________________________________________________________________
